@@ -1,0 +1,16 @@
+{
+  "name": "autodoc-hook",
+  "version": "1.0.0",
+  "description": "A Kiro Hook that automatically updates project documentation whenever a source code file changes.",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "doc": "node .kiro/hooks/autodoc.js"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "keywords": ["kiro", "hook", "autodoc", "documentation"],
+  "author": "",
+  "license": "MIT"
+}

@@ -1,0 +1,13 @@
+{
+  "name": "AutoDoc Hook",
+  "version": "1.0.0",
+  "description": "Automatically updates README.md with project statistics whenever a source file is saved.",
+  "when": {
+    "type": "fileEdited",
+    "patterns": ["**/*.js", "**/*.ts", "**/*.jsx", "**/*.tsx", "**/*.py"]
+  },
+  "then": {
+    "type": "runCommand",
+    "command": "node .kiro/hooks/autodoc.js"
+  }
+}
