@@ -1,0 +1,13 @@
+{
+  "name": "teamflow-ai-workspace",
+  "version": "1.0.0",
+  "description": "Collaborative workspace for generating PRDs with AI teammate",
+  "main": "index.html",
+  "scripts": {
+    "start": "npx http-server -c-1 -p 8000",
+    "dev": "npx http-server -c-1 -p 8000"
+  },
+  "keywords": ["collaborative", "ai", "prd", "workspace"],
+  "author": "TeamFlow",
+  "license": "MIT"
+}

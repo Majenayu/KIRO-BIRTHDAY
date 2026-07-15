@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TeamFlow AI Workspace - Collaborative PRD Generator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="app">
+        <!-- Home Page -->
+        <div id="homePage" class="page">
+            <div class="home-container">
+                <div class="home-header">
+                    <h1>TeamFlow AI Workspace</h1>
+                    <p class="subtitle">Collaborate with AI to create amazing Product Requirements</p>
+                </div>
+                
+                <div class="home-content">
+                    <form id="projectForm" class="project-form">
+                        <div class="form-group">
+                            <label for="projectName">Project Name</label>
+                            <input 
+                                type="text" 
+                                id="projectName" 
+                                placeholder="e.g., Mobile Payment App"
+                                required
+                            >
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="projectIdea">Project Idea</label>
+                            <textarea 
+                                id="projectIdea" 
+                                placeholder="Describe your project idea in detail. What problem does it solve? Who are the users?"
+                                rows="6"
+                                required
+                            ></textarea>
+                        </div>
+                        
+                        <div class="form-actions">
+                            <button type="submit" class="btn btn-primary">
+                                <span class="btn-icon">✨</span>
+                                Start Collaboration
+                            </button>
+                        </div>
+                    </form>
+                    
+                    <div class="home-info">
+                        <h3>How it works</h3>
+                        <ul>
+                            <li>Enter your project details</li>
+                            <li>Invite your AI teammate</li>
+                            <li>Collaborate to refine the PRD</li>
+                            <li>Export the complete document</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Workspace Page -->
+        <div id="workspacePage" class="page hidden">
+            <div class="workspace-header">
+                <div class="workspace-title">
+                    <button class="btn-back" id="backBtn">← Back</button>
+                    <h2 id="wsProjectName"></h2>
+                </div>
+                <button class="btn btn-secondary" id="exportBtn">📥 Export PRD</button>
+            </div>
+            
+            <div class="workspace-container">
+                <div class="chat-panel">
+                    <div class="chat-messages" id="chatMessages"></div>
+                    
+                    <div class="chat-input-area">
+                        <textarea 
+                            id="userMessage" 
+                            class="message-input" 
+                            placeholder="Ask your AI teammate anything about the project..."
+                            rows="3"
+                        ></textarea>
+                        <button class="btn btn-primary" id="sendBtn">Send Message</button>
+                    </div>
+                </div>
+                
+                <div class="output-panel">
+                    <div class="output-header">
+                        <h3>PRD Output</h3>
+                        <button class="btn btn-sm" id="copyBtn">Copy PRD</button>
+                    </div>
+                    <div class="prd-content" id="prdContent"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="app.js"></script>
+</body>
+</html>

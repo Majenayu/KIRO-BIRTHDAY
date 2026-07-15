@@ -1,0 +1,12 @@
+{
+  "name": "Auto-update README on Spec Changes",
+  "version": "1.0.0",
+  "description": "Automatically updates README.md whenever the project specification changes, including last updated timestamp and spec count",
+  "when": {
+    "type": "postTaskExecution"
+  },
+  "then": {
+    "type": "askAgent",
+    "prompt": "The project specification has been updated. Please regenerate the README.md file with the latest information. Include:\n1. Current date and time in 'Last Updated' section\n2. Count the number of specification files in .kiro/specs/ folder\n3. Update the specs count in the README\n4. Ensure all sections are current and accurate\n5. Keep the 'Generated Automatically by Kiro Hook' note\n\nMake sure the README reflects the current state of the project."
+  }
+}
