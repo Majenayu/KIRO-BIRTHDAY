@@ -1,0 +1,13 @@
+{
+  "name": "Update README on Spec Changes",
+  "version": "1.0.0",
+  "description": "Automatically updates README.md with project status, last updated timestamp, and specification count whenever requirements.md changes",
+  "when": {
+    "type": "fileEdited",
+    "patterns": [".kiro/specs/requirements.md"]
+  },
+  "then": {
+    "type": "askAgent",
+    "prompt": "The requirements.md file has been updated. Please regenerate the README.md file to include: 1) Current timestamp in 'Last Updated' section, 2) Current project status (e.g., 'In Development - MVP Phase'), 3) Count of specifications (requirements.md, design.md, tasks.md), 4) All existing sections like Features, Architecture, Installation. Ensure the README is professional, complete, and highlights how Kiro was used to build this project (Specs, Steering, Hooks)."
+  }
+}

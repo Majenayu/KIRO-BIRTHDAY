@@ -1,0 +1,13 @@
+{
+  "name": "Update CHANGELOG on Code Changes",
+  "version": "1.0.0",
+  "description": "Automatically generates and updates CHANGELOG.md whenever files in the src directory are modified, including changed files, timestamps, and a summary of modifications",
+  "when": {
+    "type": "fileEdited",
+    "patterns": ["src/**/*"]
+  },
+  "then": {
+    "type": "askAgent",
+    "prompt": "Code files in src/ have been modified. Please update CHANGELOG.md to include: 1) The current date and time, 2) List of files that were changed (relative paths), 3) A brief summary of what was changed (e.g., 'Fixed bug in API response generation', 'Added new UI components', 'Improved data persistence'), 4) Keep the format consistent with existing entries, 5) Add entries to the top under the most recent version section. If this is the first entry, create a version 1.0.0 section with today's date."
+  }
+}
