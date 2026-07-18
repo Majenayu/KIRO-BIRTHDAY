@@ -1,0 +1,228 @@
+.input-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.input-card,
+.example-card {
+  background: white;
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+  animation: slideUp 0.5s ease-out;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.input-card h2 {
+  color: #333;
+  margin-bottom: 0.5rem;
+  font-size: 1.5rem;
+}
+
+.input-subtitle {
+  color: #666;
+  font-size: 0.95rem;
+  margin-bottom: 1.5rem;
+}
+
+.textarea-wrapper {
+  position: relative;
+  margin-bottom: 1rem;
+}
+
+.job-description-textarea {
+  width: 100%;
+  padding: 1rem;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-family: 'Courier New', monospace;
+  resize: vertical;
+  transition: all 0.3s ease;
+}
+
+.job-description-textarea:focus {
+  outline: none;
+  border-color: #667eea;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.job-description-textarea.error {
+  border-color: #ef4444;
+  background-color: rgba(239, 68, 68, 0.05);
+}
+
+.character-count {
+  position: absolute;
+  bottom: 8px;
+  right: 12px;
+  font-size: 0.8rem;
+  color: #999;
+  background: white;
+  padding: 0 4px;
+}
+
+.error-message {
+  background-color: #fee2e2;
+  border: 1px solid #fca5a5;
+  color: #991b1b;
+  padding: 0.75rem 1rem;
+  border-radius: 6px;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.analyze-button {
+  width: 100%;
+  padding: 0.75rem 1.5rem;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.analyze-button:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(102, 126, 234, 0.3);
+}
+
+.analyze-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.spinner {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  border-top-color: white;
+  animation: spin 0.6s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.input-tips {
+  background: #f0f4ff;
+  border-left: 4px solid #667eea;
+  padding: 1rem;
+  border-radius: 6px;
+}
+
+.input-tips h4 {
+  color: #667eea;
+  margin-bottom: 0.5rem;
+}
+
+.input-tips ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.input-tips li {
+  color: #555;
+  margin-bottom: 0.5rem;
+  padding-left: 1.5rem;
+  position: relative;
+}
+
+.input-tips li:before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: #667eea;
+  font-weight: bold;
+}
+
+.example-card h3 {
+  color: #333;
+  margin-bottom: 1rem;
+}
+
+.example-text {
+  color: #666;
+  margin-bottom: 1rem;
+  font-size: 0.95rem;
+}
+
+.example-content {
+  background: #f8f9ff;
+  padding: 1rem;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: #555;
+}
+
+.example-content strong {
+  color: #667eea;
+  display: block;
+  margin-top: 0.75rem;
+}
+
+.example-content ul {
+  list-style: none;
+  padding: 0;
+  margin: 0.5rem 0 0 1.5rem;
+}
+
+.example-content li {
+  margin-bottom: 0.5rem;
+  position: relative;
+}
+
+.example-content li:before {
+  content: '•';
+  position: absolute;
+  left: -1rem;
+  color: #667eea;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .input-container {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .input-card,
+  .example-card {
+    padding: 1.5rem;
+  }
+
+  .input-card h2 {
+    font-size: 1.25rem;
+  }
+
+  .job-description-textarea {
+    font-size: 16px; /* Prevents zoom on iOS */
+  }
+}

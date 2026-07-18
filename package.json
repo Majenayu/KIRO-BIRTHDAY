@@ -1,0 +1,35 @@
+{
+  "name": "ats-resume-checklist-generator",
+  "version": "1.0.0",
+  "description": "Web application that helps students instantly generate an ATS-friendly resume checklist from any job description",
+  "main": "server/server.js",
+  "scripts": {
+    "start": "cd server && npm start",
+    "dev": "cd server && npm run dev",
+    "client": "cd client && npm start",
+    "server": "cd server && npm start",
+    "install-all": "npm install && cd server && npm install && cd ../client && npm install",
+    "build": "cd client && npm run build",
+    "test": "echo \"Testing not yet configured\""
+  },
+  "keywords": [
+    "resume",
+    "ATS",
+    "job",
+    "checklist",
+    "student",
+    "career"
+  ],
+  "author": "Your Name",
+  "license": "MIT",
+  "type": "module",
+  "engines": {
+    "node": ">=14.0.0",
+    "npm": ">=6.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/ats-resume-checklist-generator"
+  }
+}
+
