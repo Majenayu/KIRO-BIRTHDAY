@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WeatherMCP Assistant - Live Weather via MCP</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">🌤️ WeatherMCP Assistant</div>
+            <div class="nav-info">
+                <span class="server-status">● Server Connected</span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <h1>Weather Information via MCP</h1>
+            <p>Powered by OpenWeatherMap API • Custom MCP Server • Real-time Data</p>
+        </header>
+
+        <!-- Search Section -->
+        <section class="search-section">
+            <div class="search-container">
+                <input 
+                    type="text" 
+                    id="cityInput" 
+                    class="city-input" 
+                    placeholder="Enter city name (e.g., London, New York, Tokyo)"
+                    autocomplete="off"
+                >
+                <button id="searchBtn" class="search-btn">
+                    <span class="btn-icon">🔍</span>
+                    <span>Get Weather</span>
+                </button>
+                <button id="forecastBtn" class="forecast-btn">
+                    <span class="btn-icon">📊</span>
+                    <span>5-Day Forecast</span>
+                </button>
+            </div>
+            <div class="quick-cities">
+                <span class="quick-label">Quick Access:</span>
+                <button class="quick-city" data-city="London">London</button>
+                <button class="quick-city" data-city="New York">New York</button>
+                <button class="quick-city" data-city="Tokyo">Tokyo</button>
+                <button class="quick-city" data-city="Sydney">Sydney</button>
+                <button class="quick-city" data-city="Dubai">Dubai</button>
+            </div>
+        </section>
+
+        <!-- Loading Spinner -->
+        <div id="loadingSpinner" class="spinner hidden">
+            <div class="spinner-circle"></div>
+            <p>Fetching weather data via MCP...</p>
+        </div>
+
+        <!-- Error Message -->
+        <div id="errorMessage" class="error-message hidden"></div>
+
+        <!-- Current Weather Display -->
+        <section id="weatherSection" class="weather-section hidden">
+            <div class="weather-card">
+                <div class="weather-header">
+                    <h2 id="cityName"></h2>
+                    <p id="timestamp" class="timestamp"></p>
+                </div>
+
+                <div class="weather-main">
+                    <div class="temperature-display">
+                        <div class="temp-value" id="tempCelsius"></div>
+                        <div class="temp-unit">°C</div>
+                    </div>
+                    <div class="weather-icon-large" id="weatherIcon"></div>
+                    <div class="weather-condition">
+                        <p id="condition" class="condition-main"></p>
+                        <p id="description" class="condition-desc"></p>
+                    </div>
+                </div>
+
+                <div class="weather-grid">
+                    <div class="weather-item">
+                        <span class="label">Feels Like</span>
+                        <span class="value" id="feelsLike"></span>
+                    </div>
+                    <div class="weather-item">
+                        <span class="label">Humidity</span>
+                        <span class="value" id="humidity"></span>
+                    </div>
+                    <div class="weather-item">
+                        <span class="label">Wind Speed</span>
+                        <span class="value" id="windSpeed"></span>
+                    </div>
+                    <div class="weather-item">
+                        <span class="label">Pressure</span>
+                        <span class="value" id="pressure"></span>
+                    </div>
+                    <div class="weather-item">
+                        <span class="label">Visibility</span>
+                        <span class="value" id="visibility"></span>
+                    </div>
+                    <div class="weather-item">
+                        <span class="label">Cloudiness</span>
+                        <span class="value" id="cloudiness"></span>
+                    </div>
+                </div>
+
+                <div class="sunrise-sunset">
+                    <div class="sun-item">
+                        <span class="sun-icon">🌅</span>
+                        <div>
+                            <p class="sun-label">Sunrise</p>
+                            <p class="sun-time" id="sunrise"></p>
+                        </div>
+                    </div>
+                    <div class="sun-item">
+                        <span class="sun-icon">🌇</span>
+                        <div>
+                            <p class="sun-label">Sunset</p>
+                            <p class="sun-time" id="sunset"></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="location-info">
+                    <p id="coordinates" class="coordinates"></p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Forecast Display -->
+        <section id="forecastSection" class="forecast-section hidden">
+            <h2 class="forecast-title">📊 5-Day Weather Forecast</h2>
+            <div id="forecastContainer" class="forecast-container"></div>
+        </section>
+
+        <!-- API Info -->
+        <section class="api-info">
+            <div class="info-box">
+                <h3>📡 MCP Server Information</h3>
+                <p><strong>Data Source:</strong> OpenWeatherMap REST API</p>
+                <p><strong>MCP Tools Available:</strong></p>
+                <ul>
+                    <li><code>getWeather(city)</code> - Get current weather</li>
+                    <li><code>getForecast(city)</code> - Get 5-day forecast</li>
+                </ul>
+                <p><strong>API Endpoints:</strong></p>
+                <ul>
+                    <li><code>POST /mcp/getWeather</code> - Current weather</li>
+                    <li><code>POST /mcp/getForecast</code> - Forecast data</li>
+                    <li><code>GET /mcp/health</code> - Server health check</li>
+                </ul>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>WeatherMCP Assistant v1.0.0 • Custom MCP Server for Kiro • Using OpenWeatherMap API</p>
+        <p><a href="https://openweathermap.org/api" target="_blank">Get Free API Key →</a></p>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>

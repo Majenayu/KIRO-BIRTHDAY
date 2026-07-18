@@ -1,16 +1,24 @@
 {
-  "name": "autodoc-hook",
+  "name": "weather-mcp-assistant",
   "version": "1.0.0",
-  "description": "A Kiro Hook that automatically updates project documentation whenever a source code file changes.",
-  "main": "src/index.js",
+  "description": "Custom MCP server connecting Kiro to OpenWeatherMap API for live weather information",
+  "main": "server.js",
+  "type": "module",
   "scripts": {
-    "start": "node src/index.js",
-    "doc": "node .kiro/hooks/autodoc.js"
+    "start": "node server.js",
+    "dev": "node server.js"
   },
-  "engines": {
-    "node": ">=14.0.0"
-  },
-  "keywords": ["kiro", "hook", "autodoc", "documentation"],
+  "keywords": [
+    "mcp",
+    "weather",
+    "openweathermap",
+    "kiro"
+  ],
   "author": "",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2",
+    "axios": "^1.6.0",
+    "dotenv": "^16.3.1"
+  }
 }

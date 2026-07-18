@@ -1,0 +1,19 @@
+{
+  "mcpServers": {
+    "weather-mcp": {
+      "command": "node",
+      "args": ["server.js"],
+      "env": {
+        "NODE_ENV": "development",
+        "OPENWEATHER_API_KEY": "${OPENWEATHER_API_KEY}",
+        "MCP_PORT": "3000",
+        "DEBUG": "false"
+      },
+      "disabled": false,
+      "autoApprove": [
+        "getWeather",
+        "getForecast"
+      ]
+    }
+  }
+}
