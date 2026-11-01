@@ -1,77 +1,56 @@
-# AutoDoc-Hook
+# KIRO-BIRTHDAY
 
-A **Kiro Hook** that automatically keeps your project documentation up to date.
-Every time you save a source file (`.js`, `.ts`, `.jsx`, `.tsx`, `.py`), the hook
-runs a Node.js script that counts your files and lines of code, then writes the
-results directly into this README.
+A small Node.js birthday-project sample. The repository currently contains a
+single executable source file and a minimal package manifest; it does **not**
+currently contain the `.kiro/hooks` files described by earlier documentation.
 
----
+## What is here
 
-## How It Works
+`src/index.js` defines and demonstrates four synchronous helpers:
 
-```
-You save a file
-      │
-      ▼
-Kiro detects fileEdited event
-      │
-      ▼
-.kiro/hooks/autodoc.js runs
-      │
-      ├─ Walks the project tree
-      ├─ Counts source files & lines of code
-      ├─ Updates README.md → "Auto Generated Project Status"
-      └─ Prints a summary banner to the terminal
-```
+- `greet(name)` — returns a greeting.
+- `add(a, b)` — adds two values.
+- `formatDate(date)` — formats a date as `YYYY-MM-DD`.
+- `multiply(a, b)` — multiplies two values.
 
----
+The module calls these functions from its top-level entry point and prints the
+results to standard output. It does not expose an HTTP API, persist data, or
+read environment variables.
 
-## Project Structure
+## Requirements and usage
 
-```
-AutoDoc-Hook/
-├── .kiro/
-│   └── hooks/
-│       ├── autodoc-hook.json   ← Kiro Hook configuration
-│       └── autodoc.js          ← Hook script (pure Node.js)
-├── src/
-│   └── index.js                ← Sample source file (edit this to trigger the hook)
-├── package.json
-└── README.md                   ← This file (auto-updated by the hook)
-```
-
----
-
-## Getting Started
-
-1. Open this folder in Kiro.
-2. Edit and save any file matching `*.js`, `*.ts`, `*.jsx`, `*.tsx`, or `*.py`.
-3. Watch this README update automatically.
-
-To trigger the hook manually from a terminal:
+- Node.js 14 or newer (declared in `package.json`).
 
 ```bash
-node .kiro/hooks/autodoc.js
+npm install
+npm start
 ```
 
----
+`npm start` runs `node src/index.js`. The manifest also provides:
 
-## Configuration
+```bash
+npm run doc
+```
 
-The hook is defined in `.kiro/hooks/autodoc-hook.json`.
-Edit the `patterns` array to add or remove file extensions you want to watch.
+That command currently points to `.kiro/hooks/autodoc.js`, which is not present
+in the repository, so it will fail until that hook is added.
 
----
+## Layout
 
-## Auto Generated Project Status
+```text
+src/index.js   # sample functions and console entry point
+package.json   # npm metadata and scripts
+README.md      # project documentation
+```
 
-| Field               | Value                                        |
-|---------------------|----------------------------------------------|
-| **Last Updated**    | 2026-07-14 02:46:15 UTC                    |
-| **Changed File**    | `<unknown — run manually>`                           |
-| **Total Files**     | 3                          |
-| **Source Files**    | 1                         |
-| **Total Lines**     | 29                          |
-| **Status**          | ✅ Documentation generated automatically using Kiro Hook. |
+## Status and limitations
 
-> This section is overwritten automatically each time a source file is saved.
+This is a minimal sample rather than a production service. There are no tests,
+lint configuration, build step, CI workflow, or deployment definition. The
+source contains an unreachable stray token after the `formatDate` return; it
+does not affect the documented execution path but should be removed before
+extending the sample.
+
+## License
+
+`package.json` declares the MIT license.
